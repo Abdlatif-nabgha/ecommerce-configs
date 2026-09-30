@@ -4,32 +4,30 @@ spring:
       discovery:
         locator:
           enabled: true
-      server:
-        webmvc:
-          routes:
-            - id: customer-service
-              uri: lb://CUSTOMER-SERVICE
-              predicates:
-                - Path=/api/v1/customers/**
-            - id: order-service
-              uri: lb://ORDER-SERVICE
-              predicates:
-                - Path=/api/v1/orders/**
-            - id: order-lines-service
-              uri: lb://ORDER-SERVICE
-              predicates:
-                - Path=/api/v1/order-lines/**
-            - id: product-service
-              uri: lb://PRODUCTS-SERVICE
-              predicates:
-                - Path=/api/v1/products/**
-            - id: category-service
-              uri: lb://PRODUCTS-SERVICE
-              predicates:
-                - Path=/api/v1/categories/**
-            - id: payment-service
-              uri: lb://PAYMENT-SERVICE
-              predicates:
-                - Path=/api/v1/payments/**
+      routes:
+        - id: customer-service
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/api/v1/customers/**
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/orders/**
+        - id: order-lines-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/order-lines/**
+        - id: product-service
+          uri: lb://PRODUCTS-SERVICE
+          predicates:
+            - Path=/api/v1/products/**
+        - id: category-service
+          uri: lb://PRODUCTS-SERVICE
+          predicates:
+            - Path=/api/v1/categories/**
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/v1/payments/**
 server:
   port: 8222
